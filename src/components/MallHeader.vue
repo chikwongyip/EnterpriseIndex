@@ -1,7 +1,11 @@
 <template>
   <div>
-    <div>
-      <img src="" alt="" class="src">
+    <div class="header">
+      <el-image :src="src">
+          <div slot="placeholder" class="image-slot">
+            加载中<span class="dot">...</span>
+          </div>
+      </el-image>
       <el-input placeholder="输入名称搜索产品" class="input-with-select">
         <el-select v-model="select" slot="prepend" placeholder="请选择">
           <el-option label="产品名称" value="1"></el-option>
@@ -12,7 +16,15 @@
       </el-input>
     </div>
     <div>
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu 
+        :default-active="activeIndex" 
+        class="el-menu-demo" 
+        mode="horizontal" 
+        @select="handleSelect" 
+        background-color="#759EFF"
+        text-color="#fff"
+        active-text-color="#FFFEB1"
+        >
         <el-submenu index="1">
           <template slot="title">应用</template>
           <el-menu-item index="2-1">选项1</el-menu-item>
@@ -36,11 +48,36 @@
   </div>
 </template>
 <script>
+import companyInfo from "../api/index"
 export default {
-  name: "MallHeader"
+  name: "MallHeader",
+  data(){
+    return{
+      baseUrl:"http://localhost:8000",
+      src:"",
+      data:[]
+    }
+  },
+  methods:{
+    getData(){
+      companyInfo.then(res => {
+        this.data = res.data;
+        this.src = this.baseUrl+this.data[0].logo
+      })
+    }
+  },
+  mounted(){
+    this.getData()
+  }
 }
 </script>
 
 <style scoped>
-
+  .header{
+    display: flex;
+    justify-content: left;
+  }
+  .submenu{
+    color: white;
+  }
 </style>
