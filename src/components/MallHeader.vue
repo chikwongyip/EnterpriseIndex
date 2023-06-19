@@ -57,7 +57,7 @@
   </div>
 </template>
 <script>
-import { companyInfo } from '@/api'
+import { companyInfo } from "@/api";
 export default {
   name: "MallHeader",
   data(){
