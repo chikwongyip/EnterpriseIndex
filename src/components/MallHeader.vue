@@ -77,19 +77,19 @@ export default {
       service:[],
       selection:[
         {
-          value:"brand",
-          label:"品牌"
+          label:"品牌",
+          value:"1"
         },
         {
-          value:"category",
-          label:"类型"
+          label:"类型",
+          value:"2"
         },
         {
-          value:"product",
-          label:"产品名称"
+          label:"产品",
+          value:"3"
         },
       ],
-      searchItem:"",
+      searchItem:"1",
       search:""
     }
   },
