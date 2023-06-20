@@ -9,3 +9,6 @@ export const applicationList = () => {
 export const getProduct = () => {
     return fetchGet(`${baseUrl}/admin/productList`)
 }
+export const getService = () => {
+    return fetchGet(`${baseUrl}/admin/serviceList`)
+}

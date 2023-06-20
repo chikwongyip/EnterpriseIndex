@@ -14,10 +14,14 @@
       </div>
       <div class="searchBar">
         <el-input placeholder="输入名称搜索产品" v-model="search" class="input-with-select">
-          <el-select v-model="select" slot="prepend" placeholder="请选择">
-            <el-option label="产品名称" value="1"></el-option>
-            <el-option label="产品类型" value="2"></el-option>
-            <el-option label="产品品牌" value="3"></el-option>
+          <el-select v-model="searchItem" slot="prepend" placeholder="请选择">
+            <el-option
+              v-for="item in selection"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
           </el-select>
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
@@ -48,9 +52,9 @@
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">服务</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-menu-item v-for="(item,index) in service" :key="index">
+            {{ item.name }}
+          </el-menu-item>
         </el-submenu>
       </el-menu>
     </div>
@@ -59,7 +63,8 @@
 <script>
 import { companyInfo,
          applicationList,
-         getProduct } from "@/api";
+         getProduct,
+         getService } from "@/api";
 export default {
   name: "MallHeader",
   data(){
@@ -69,7 +74,22 @@ export default {
       data:[],
       applicationList:[],
       product:[],
-      select:'',
+      service:[],
+      selection:[
+        {
+          value:"brand",
+          label:"品牌"
+        },
+        {
+          value:"category",
+          label:"类型"
+        },
+        {
+          value:"product",
+          label:"产品名称"
+        },
+      ],
+      searchItem:"",
       search:""
     }
   },
@@ -85,6 +105,29 @@ export default {
       getProduct().then(res => {
         this.product = res.data.product
       })
+      getService().then(res => {
+        this.service = res.data
+      })
+    },
+    submitSearch(name,type){
+      let result = [];
+      const regExp = new RegExp(name,"g")
+      if(type === "brand"){
+        result = this.product.filter( item => {
+          return regExp.test(item.brand_name)
+        })
+      }
+      if(type === "category"){
+        result = this.product.filter( item => {
+          return regExp.test(item.category_name)
+        })
+      }
+      if(type === "product"){
+        result = this.product.filter( item => {
+          return regExp.test(item.product_name)
+        })
+      }
+      return result
     }
   },
   mounted(){
