@@ -34,19 +34,19 @@
         active-text-color="#FFFEB1"
         style="border-radius:15px"
         >
-        <el-submenu index="1">
+        <el-submenu index="1" v-bind="applicationList">
           <template slot="title">应用</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-menu-item v-for="(item,id) in applicationList" :key="id">
+            {{ item.name }}
+          </el-menu-item>
         </el-submenu>
-        <el-submenu index="2">
+        <el-submenu index="2" v-bind="product">
           <template slot="title">产品</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-menu-item v-for="(item,index) in product" :key="index">
+            {{ item.product_name }}
+          </el-menu-item>
         </el-submenu>
-        <el-submenu index="2">
+        <el-submenu index="3">
           <template slot="title">服务</template>
           <el-menu-item index="2-1">选项1</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
@@ -57,7 +57,9 @@
   </div>
 </template>
 <script>
-import { companyInfo } from "@/api";
+import { companyInfo,
+         applicationList,
+         getProduct } from "@/api";
 export default {
   name: "MallHeader",
   data(){
@@ -65,6 +67,8 @@ export default {
       baseUrl:"http://localhost:8000/images/",
       src:"",
       data:[],
+      applicationList:[],
+      product:[],
       select:'',
       search:""
     }
@@ -74,6 +78,12 @@ export default {
       companyInfo().then(res => {
         this.data = res.data
         this.src = this.baseUrl + this.data[0].logo;
+      })
+      applicationList().then(res => {
+        this.applicationList = res.data
+      })
+      getProduct().then(res => {
+        this.product = res.data.product
       })
     }
   },
