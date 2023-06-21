@@ -14,13 +14,12 @@
       </div>
       <div class="searchBar">
         <el-input placeholder="输入名称搜索产品" v-model="search" class="input-with-select">
-          <el-select v-model="searchItem" slot="prepend" placeholder="请选择">
+          <el-select v-model="value" slot="prepend" placeholder="请选择" style="width:100px">
             <el-option
-              v-for="item in selection"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            >
+            v-for="item in selection"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
             </el-option>
           </el-select>
           <el-button slot="append" icon="el-icon-search"></el-button>
@@ -89,7 +88,7 @@ export default {
           value:"3"
         },
       ],
-      searchItem:"1",
+      value:"",
       search:""
     }
   },
@@ -112,17 +111,17 @@ export default {
     submitSearch(name,type){
       let result = [];
       const regExp = new RegExp(name,"g")
-      if(type === "brand"){
+      if(type === "1"){
         result = this.product.filter( item => {
           return regExp.test(item.brand_name)
         })
       }
-      if(type === "category"){
+      if(type === "2"){
         result = this.product.filter( item => {
           return regExp.test(item.category_name)
         })
       }
-      if(type === "product"){
+      if(type === "3"){
         result = this.product.filter( item => {
           return regExp.test(item.product_name)
         })

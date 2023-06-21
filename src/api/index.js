@@ -12,3 +12,6 @@ export const getProduct = () => {
 export const getService = () => {
     return fetchGet(`${baseUrl}/admin/serviceList`)
 }
+export const getBrand = () => {
+    return fetchGet(`${baseUrl}/admin/brandList`)
+}

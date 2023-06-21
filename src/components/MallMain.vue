@@ -1,6 +1,8 @@
 <template>
   <el-main>
-    text
+    <div class="main">
+
+    </div>
   </el-main>
 </template>
 
@@ -11,5 +13,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .main{
+    width:500px;
+    height: 500px;
+  }
 </style>
