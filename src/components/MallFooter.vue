@@ -4,22 +4,22 @@
       <div class="line"></div>
       <MallBrand> </MallBrand>
       <div style="height:100px"></div>
-      <div class="footer-container">
-        <div class="contract">
-          <h2>广州瑞谱佳科技有限公司拥有稳妥，快捷，优质的售后服务，欢迎垂询</h2>
-          <i class="el-icon-position"></i>
-          <span>地址</span>
-          <i class="el-icon-position"></i>
-          <span>地址</span>
-          <i class="el-icon-position"></i>
-          <span>地址</span>
-        </div>
-        <div>
-
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="single-feature">
+              <div class="feature-icon">
+                <ion-icon name="heart"></ion-icon>
+              </div>
+              <div class="feature-content">
+                <h3>(999) 1234 56789</h3>
+                <p>Free support line!</p>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
    </div>
-
 </template>
 
 <script>
@@ -40,15 +40,25 @@ export default {
 </script>
 
 <style scoped>
-  .footer-container{
-    background-color: #F8F8FC;
-    display: flex;
-    justify-content: left;
-  }
-  .contract{
-    display: flex;
-    align-items: top;
-    margin-top: 20px;
-    margin-left: 20px;
-  }
+.single-feature {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-right: 1px solid #a1adbe;
+}
+.feature-icon > i {
+	font-size: 48px;
+	color: #fff;
+}
+.feature-content {
+	display: inline-block;
+	padding-left: 15px;
+	text-align: left;
+}
 </style>
