@@ -9,7 +9,7 @@
           <div class="col-md-4">
             <div class="single-feature">
               <div class="feature-icon">
-                <ion-icon name="heart"></ion-icon>
+                <ion-icon :icon="heart"></ion-icon>
               </div>
               <div class="feature-content">
                 <h3>(999) 1234 56789</h3>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { heart } from 'ionicons/icons';
 import MallBrand from './MallBrand.vue';
 export default {
   name: "MallFooter",
@@ -33,7 +34,8 @@ export default {
     return{
       message:"",
       baseUrl:"http://localhost:8000/images/",
-      brand:[]
+      brand:[],
+      heart
     }
   },
 }
