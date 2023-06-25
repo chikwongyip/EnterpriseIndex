@@ -4,38 +4,51 @@
       <div class="line"></div>
       <MallBrand> </MallBrand>
       <div style="height:100px"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="single-feature">
-              <div class="feature-icon">
-                <PhoneIcon class="icon"></PhoneIcon>
+      <div class="feature-area mt-80">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="single-feature">
+                <div class="feature-icon">
+                  <PhoneIcon class="icon"></PhoneIcon>
+                </div>
+                <div class="feature-content">
+                  <h3>(999) 1234 56789</h3>
+                  <p>欢迎致电，垂询！</p>
+                </div>
               </div>
-              <div class="feature-content">
-                <h3>(999) 1234 56789</h3>
-                <p>欢迎致电，垂询！</p>
+            </div>
+            <div class="col-md-4">
+              <div class="single-feature">
+                <div class="feature-icon">
+                  <MaillIcon class="icon"></MaillIcon>
+                </div>
+                <div class="feature-content">
+                  <h3>(999) 1234 56789</h3>
+                  <p>欢迎邮件报价！</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="single-feature">
+                <div class="feature-icon">
+                  <LocationIcon class="icon"></LocationIcon>
+                </div>
+                <div class="feature-content">
+                  <h3>(999) 1234 56789</h3>
+                  <p>欢迎参观我们的团队</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="single-feature">
-              <div class="feature-icon">
-                <MaillIcon class="icon"></MaillIcon>
-              </div>
-              <div class="feature-content">
-                <h3>(999) 1234 56789</h3>
-                <p>欢迎邮件报价！</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="single-feature">
-              <div class="feature-icon">
-                <LocationIcon class="icon"></LocationIcon>
-              </div>
-              <div class="feature-content">
-                <h3>(999) 1234 56789</h3>
-                <p>欢迎参观我们的团队</p>
+        </div>
+      </div>
+      <div class="footer-bottom-area matisse-bg">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="footer-copyright">
+                <p>Copyright &copy; <a href="www.bootstrapmb.com">Picaboo.</a> All Rights Reserved</p>
               </div>
             </div>
           </div>
@@ -68,8 +81,12 @@ export default {
 </script>
 
 <style scoped>
+.feature-area{
+  padding: 40px 0;
+	background-color: #919fb3;
+}
 .container{
-  background-color: #1B438C;
+  width:100%
 }
 .single-feature {
   display: -webkit-box;
@@ -93,6 +110,26 @@ export default {
 	text-align: left;
 }
 .icon{
-  font-size: 80px;
+  font-size: 60px;
+  color:white
+}
+.feature-footer{
+  padding: 40px 0;
+  background-color:white
+}
+.footer-bottom-area {
+	background: #1B438C;
+	padding: 25px 0;
+}
+.footer-copyright > p {
+	font-size: 14px;
+	color: #fff;
+    margin-bottom: 0;
+}
+.footer-copyright > p > a{
+    color: #fff;
+}
+.footer-copyright > p > a:hover{
+    color: #ff6a00;
 }
 </style>
