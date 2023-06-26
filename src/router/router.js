@@ -1,21 +1,13 @@
-import IndexPage from "../page/IndexPage";
-import IndexMain from "../components/IndexMain";
-import ApplicationMain from "../components/ApplicationMain";
-import ServiceMain from "../components/ServiceMain";
-import ProductList from "../components/ProductList";
-import ProductDetail from "../components/ProductDetail";
-
+import IndexPage from "@/page/IndexPage";
+import ServicePage from "@/page/ServicePage";
 let routes = [
     {
         path: "/",
-        component: IndexPage,
-        children:[
-            { path:"index",component:IndexMain},
-            { path:"application",component:ApplicationMain},
-            { path:"service",component:ServiceMain},
-            { path:"productList",component:ProductList},
-            { path:"productDetail",component:ProductDetail}
-        ]
+        component: IndexPage
+    },
+    {
+        path: "/service",
+        component: ServicePage
     }
 ];
 export default routes;

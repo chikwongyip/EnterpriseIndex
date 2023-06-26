@@ -1,10 +1,12 @@
 <template>
   <el-container class="container">
-    <el-header >
+    <el-header>
        <MallHeader></MallHeader>
     </el-header>
-    <el-main>
-      <router-view></router-view>
+    <el-main style="margin-top: 200px">
+      <div>
+        <IndexBody></IndexBody>
+      </div>
     </el-main>
     <el-footer>
       <MallFooter></MallFooter>
@@ -12,13 +14,15 @@
   </el-container>
 </template>
 <script>
-import MallHeader from "@/components/MallHeader";
-import MallFooter from "@/components/MallFooter";
+import MallHeader from "@/components/common/MallHeader";
+import MallFooter from "@/components/common/MallFooter";
+import IndexBody from "@/components/IndexBody";
 export default {
   name: "IndexPage",
   components:{
     MallHeader,
-    MallFooter
+    MallFooter,
+    IndexBody
   }
 }
 </script>
