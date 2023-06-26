@@ -13,7 +13,7 @@
                   <PhoneIcon class="icon"></PhoneIcon>
                 </div>
                 <div class="feature-content">
-                  <h3>(999) 1234 56789</h3>
+                  <h3>{{ company.tel }}</h3>
                   <p>欢迎致电，垂询！</p>
                 </div>
               </div>
@@ -24,7 +24,7 @@
                   <MaillIcon class="icon"></MaillIcon>
                 </div>
                 <div class="feature-content">
-                  <h3>(999) 1234 56789</h3>
+                  <h3>{{ company.email }}</h3>
                   <p>欢迎邮件报价！</p>
                 </div>
               </div>
@@ -35,7 +35,7 @@
                   <LocationIcon class="icon"></LocationIcon>
                 </div>
                 <div class="feature-content">
-                  <h3>(999) 1234 56789</h3>
+                  <h4>{{ company.address }}</h4>
                   <p>欢迎参观我们的团队</p>
                 </div>
               </div>
@@ -48,7 +48,12 @@
           <div class="row">
             <div class="col-md-6">
               <div class="footer-copyright">
-                <p>Copyright &copy; <a href="www.bootstrapmb.com">Picaboo.</a> All Rights Reserved</p>
+                <p>Copyright &copy; <a href="www.bootstrapmb.com">{{ company.name}}</a> All Rights Reserved</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="footer-copyright">
+                <p><a href="www.bootstrapmb.com">{{ company.icp }}</a></p>
               </div>
             </div>
           </div>
@@ -62,6 +67,7 @@ import PhoneIcon from 'vue-ionicons/dist/md-call.vue'
 import MaillIcon from 'vue-ionicons/dist/md-mail.vue'
 import LocationIcon from 'vue-ionicons/dist/md-locate.vue'
 import MallBrand from './MallBrand.vue';
+import { companyInfo } from '@/api';
 export default {
   name: "MallFooter",
   components:{
@@ -75,8 +81,20 @@ export default {
       message:"",
       baseUrl:"http://localhost:8000/images/",
       brand:[],
+      company:{}
     }
   },
+  methods:{
+    getData(){
+      companyInfo().then(res => {
+        this.company = res.data[0];
+        console.log(this.company)
+      })
+    }
+  },
+  mounted(){
+    this.getData()
+  }
 }
 </script>
 
