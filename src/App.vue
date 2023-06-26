@@ -1,7 +1,8 @@
 <template>
-  <router-view></router-view>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
-
 <script>
 // import IndexPage from "@/page/IndexPage";
 export default {

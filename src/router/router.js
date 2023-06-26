@@ -1,26 +1,20 @@
-import IndexPage from "../page/IndexPage"
-import ProductListPage from "../page/ProductListPage"
-import ProductDetailPage from "../page/ProductDetailPage"
-import ApplicationPage from "../page/ApplicationPage"
-import ServiceListPage from "../page/ServiceListPage"
+import IndexPage from "../page/IndexPage";
+import IndexMain from "../components/IndexMain";
+import ApplicationMain from "../components/ApplicationMain";
+import ServiceMain from "../components/ServiceMain";
+import ProductList from "../components/ProductList";
+import ProductDetail from "../components/ProductDetail";
+
 let routes = [
     {
         path: "/",
-        component: IndexPage
-    },
-    {
-        path:"application",
-        component:ApplicationPage
-    },
-    {
-        path:"serviceList",
-        component:ServiceListPage
-    },
-    {
-        path:"productList",
-        component:ProductListPage,
+        component: IndexPage,
         children:[
-            { path:"productDetail",component:ProductDetailPage}
+            { path:"index",component:IndexMain},
+            { path:"application",component:ApplicationMain},
+            { path:"service",component:ServiceMain},
+            { path:"productList",component:ProductList},
+            { path:"productDetail",component:ProductDetail}
         ]
     }
 ];
