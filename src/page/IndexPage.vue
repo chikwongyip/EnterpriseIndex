@@ -4,23 +4,22 @@
        <MallHeader></MallHeader>
     </el-header>
     <el-main>
-      <!-- <router-view></router-view> -->
+      <IndexMain></IndexMain>
     </el-main>
     <el-footer>
       <MallFooter></MallFooter>
     </el-footer>
   </el-container>
 </template>
-
 <script>
 import MallHeader from "@/components/MallHeader";
 import MallFooter from "@/components/MallFooter";
-// import MallMain from "@/components/MallMain";
+import IndexMain from "@/components/IndexMain.vue";
 export default {
   name: "IndexPage",
   components:{
     MallHeader,
-    // MallMain,
+    IndexMain,
     MallFooter
   }
 }
