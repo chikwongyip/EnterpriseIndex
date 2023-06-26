@@ -4,7 +4,7 @@
        <MallHeader></MallHeader>
     </el-header>
     <el-main>
-      <MallMain></MallMain>
+      <!-- <router-view></router-view> -->
     </el-main>
     <el-footer>
       <MallFooter></MallFooter>
@@ -15,12 +15,12 @@
 <script>
 import MallHeader from "@/components/MallHeader";
 import MallFooter from "@/components/MallFooter";
-import MallMain from "@/components/MallMain";
+// import MallMain from "@/components/MallMain";
 export default {
   name: "IndexPage",
   components:{
     MallHeader,
-    MallMain,
+    // MallMain,
     MallFooter
   }
 }

@@ -1,14 +1,13 @@
 <template>
-  <IndexPage>
-  </IndexPage>
+  <router-view></router-view>
 </template>
 
 <script>
-import IndexPage from "@/page/IndexPage";
+// import IndexPage from "@/page/IndexPage";
 export default {
   name: 'App',
   components: {
-    IndexPage
+    // IndexPage
   }
 }
 </script>
