@@ -3,7 +3,7 @@
       <h1>探索我们的品牌</h1>
       <div class="line"></div>
       <MallBrand> </MallBrand>
-      <div style="height:100px"></div>
+      <div style="height:50px"></div>
       <div class="feature-area mt-80">
         <div class="container">
           <div class="row">

@@ -3,7 +3,7 @@
     <el-header>
        <MallHeader></MallHeader>
     </el-header>
-    <el-main style="margin-top: 200px">
+    <el-main style="margin-top: 80px">
       <div>
         <IndexBody></IndexBody>
       </div>

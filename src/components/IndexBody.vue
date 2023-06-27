@@ -1,14 +1,25 @@
 <template>
   <div class="container">
-    <!-- 添加 Bootstrap 样式类名 -->
-    <h1 class="text-center my-4">Hello, Bootstrap!</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <button class="btn btn-primary">提交</button>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="https://via.placeholder.com/800x400?text=Slide+1" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="https://via.placeholder.com/800x400?text=Slide+2" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/800x400?text=Slide+3" class="d-block w-100" alt="...">
+        </div>
       </div>
-      <div class="col-md-6">
-        <button class="btn btn-secondary">取消</button>
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
 </template>
