@@ -3,13 +3,10 @@
     <div class="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://via.placeholder.com/800x400" alt="Slide 1">
+          <img src="image[0].product_pic" alt="">
         </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/800x400" alt="Slide 2">
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/800x400" alt="Slide 3">
+        <div class="carousel-item" v-for="(item,index) in images" :key="index">
+          <img v-if="index > 0" src="item.product_pic" alt="">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -25,8 +22,28 @@
 </template>
 
 <script>
-export default {
+import { getActiveImage } from "@/api";
 
+export default {
+  data(){
+    return{
+      images:[],
+      baseUrl:"http://localhost:8000/images/"
+    }
+  },
+  methods:{
+    getData(){
+      getActiveImage().then(res => {
+        this.images = res.data.map( item => {
+          item.product_pic = this.baseUrl + item.product_pic
+          return item
+        })
+      })
+    }
+  },
+  mounted() {
+    this.getData()
+  }
 }
 </script>
 

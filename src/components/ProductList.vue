@@ -19,6 +19,7 @@
 </template>
 
 <script>
+//TO-DO:How to pass product list data to this component
 export default {
   name: "ProductList",
   data(){

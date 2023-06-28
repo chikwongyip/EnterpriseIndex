@@ -15,3 +15,6 @@ export const getService = () => {
 export const getBrand = () => {
     return fetchGet(`${baseUrl}/admin/brandList`)
 }
+export const getActiveImage = () => {
+    return fetchGet(`${baseUrl}/admin/activeImage`)
+}
