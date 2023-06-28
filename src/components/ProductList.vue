@@ -1,8 +1,18 @@
 <template>
-  <div class="container">
-    <div class="grid text-center">
-      <div class="g-col-4" v-for="item in product" :key="item.product_id">
-        <img src="item.product_pic" alt="">
+  <div class="container text-center">
+    <div class="row g-2">
+      <div class="col-6">
+        <img src="" alt="">
+        <div class="p-3">Custom column padding</div>
+      </div>
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
+      </div>
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
+      </div>
+      <div class="col-6">
+        <div class="p-3">Custom column padding</div>
       </div>
     </div>
   </div>
