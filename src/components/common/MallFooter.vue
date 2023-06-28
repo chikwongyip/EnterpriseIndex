@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class="container">
       <h1>探索我们的品牌</h1>
       <div class="line"></div>
       <MallBrand> </MallBrand>

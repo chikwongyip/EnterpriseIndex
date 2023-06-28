@@ -15,7 +15,6 @@
     </el-container>
   </div>
 </template>
-
 <script>
 import MallHeader from "@/components/common/MallHeader";
 import MallFooter from "@/components/common/MallFooter";

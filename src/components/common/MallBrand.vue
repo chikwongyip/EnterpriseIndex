@@ -1,8 +1,10 @@
 <template>
-  <div class="grid-container">
-    <div class="grid-item" v-for="item in gridItems" :key="item.brand_id">
-      <img :src="item.brand_image" alt="" />
-      <p>{{ item.brand_name }}</p>
+  <div class="container">
+    <div class="grid-container">
+      <div class="grid-item" v-for="item in gridItems" :key="item.brand_id">
+        <img :src="item.brand_image" alt="" />
+        <p>{{ item.brand_name }}</p>
+      </div>
     </div>
   </div>
 </template>
