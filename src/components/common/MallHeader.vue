@@ -13,8 +13,8 @@
         </el-image>
       </div>
       <div class="searchBar">
-        <el-input placeholder="输入名称搜索产品" v-model="search" class="input-with-select">
-          <el-select v-model="value" slot="prepend" placeholder="请选择" style="width:100px">
+        <el-input placeholder="输入名称搜索产品" v-model="name" class="input-with-select">
+          <el-select v-model="type" slot="prepend" placeholder="请选择" style="width:100px">
             <el-option
             v-for="item in selection"
             :key="item.value"
@@ -86,30 +86,19 @@ export default {
           value:"3"
         },
       ],
-      value:"",
-      search:""
     }
   },
   methods:{
-    submitSearch(name,type){
-      let result = [];
-      const regExp = new RegExp(name,"g")
-      if(type === "1"){
-        result = this.product.filter( item => {
-          return regExp.test(item.brand_name)
-        })
-      }
-      if(type === "2"){
-        result = this.product.filter( item => {
-          return regExp.test(item.category_name)
-        })
-      }
-      if(type === "3"){
-        result = this.product.filter( item => {
-          return regExp.test(item.product_name)
-        })
-      }
-      return result
+    submitSearch(){
+      this.$router.push('/productSearch')
+    }
+  },
+  computed:{
+    type(){
+      return this.$route.params.type
+    },
+    name(){
+      return this.$route.params.name
     }
   }
 }

@@ -19,13 +19,44 @@
 </template>
 
 <script>
-//TO-DO:How to pass product list data to this component
+//TODO:搜索栏功能实现
 export default {
   name: "ProductList",
+  props:{
+    productList:[]
+  },
   data(){
     return{
-      product:[],
-      baseUrl:"http://localhost:8000/images/"
+      product:[]
+    }
+  },
+  methods:{
+    submitSearch(name,type){
+      let result = [];
+      const regExp = new RegExp(name,"g")
+      if(type === "1"){
+        result = this.product.filter( item => {
+          return regExp.test(item.brand_name)
+        })
+      }
+      if(type === "2"){
+        result = this.product.filter( item => {
+          return regExp.test(item.category_name)
+        })
+      }
+      if(type === "3"){
+        result = this.product.filter( item => {
+          return regExp.test(item.product_name)
+        })
+      }
+      return result
+    }
+  },
+  computed(){
+    if (this.$route.params.name){
+      this.product = this.submitSearch(this.$route.params.name,this.$route.params.type)
+    }else{
+      this.product = this.productList
     }
   }
 }

@@ -18,6 +18,10 @@ let routes = [
     {
         path:"/productDetail",
         component:ProductDetailPage
+    },
+    {
+        path: "/productSearch",
+        component: ProductListPage
     }
 ];
 export default routes;
