@@ -18,7 +18,7 @@ export default {
       product:[],
       service:[],
       applicationList:[],
-      brand:[]
+      brand:[],
     }
   },
   methods:{
@@ -28,7 +28,12 @@ export default {
         this.logoUrl= this.baseUrl + this.company.logo
       })
       getProduct().then( res => {
-        this.product = res.data.product
+        this.product = []
+        if (this.$route.query.name){
+          this.product = this.search(this.$route.query.name,this.$route.query.type,res.data.product)
+        }else{
+          this.product = res.data.product
+        }
       })
       getService().then( res => {
         this.service = res.data
@@ -42,11 +47,31 @@ export default {
           return item
         })
       })
+    },
+    search(name,type,data){
+      let result = [];
+      const regExp = new RegExp(name,"g")
+      if(type === "1"){
+        result = data.filter( item => {
+          return regExp.test(item.brand_name)
+        })
+      }
+      if(type === "2"){
+        result = data.filter( item => {
+          return regExp.test(item.category_name)
+        })
+      }
+      if(type === "3"){
+        result = data.filter( item => {
+          return regExp.test(item.product_name)
+        })
+      }
+      return result
     }
   },
   mounted() {
     this.getData()
-  }
+  },
 }
 </script>
 
@@ -64,7 +89,10 @@ export default {
     </el-header>
     <el-main style="margin-top: 80px">
       <div>
-        <product-list></product-list>
+        <product-list
+            :product-list="product"
+        >
+        </product-list>
       </div>
     </el-main>
     <el-footer>

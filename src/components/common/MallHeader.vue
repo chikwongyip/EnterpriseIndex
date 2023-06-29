@@ -22,7 +22,7 @@
             :value="item.value">
             </el-option>
           </el-select>
-          <el-button slot="append" icon="el-icon-search"></el-button>
+          <el-button slot="append" icon="el-icon-search" @click="submitSearch"></el-button>
         </el-input>
       </div>
     </div>
@@ -72,6 +72,8 @@ export default {
   data(){
     return{
       baseUrl:"http://localhost:8000/images/",
+      name:"",
+      type:"",
       selection:[
         {
           label:"品牌",
@@ -90,17 +92,12 @@ export default {
   },
   methods:{
     submitSearch(){
-      this.$router.push('/productSearch')
+      this.$router.push({path:"/productSearch",query:{
+        name:this.name,
+        type:this.type
+        }}).catch(()=>{})
     }
   },
-  computed:{
-    type(){
-      return this.$route.params.type
-    },
-    name(){
-      return this.$route.params.name
-    }
-  }
 }
 </script>
 
