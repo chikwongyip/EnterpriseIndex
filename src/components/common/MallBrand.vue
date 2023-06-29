@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="grid-container">
-      <div class="grid-item" v-for="item in gridItems" :key="item.brand_id">
+      <div class="grid-item" v-for="item in brand" :key="item.brand_id">
         <img :src="item.brand_image" alt="" />
         <p>{{ item.brand_name }}</p>
       </div>
@@ -9,27 +9,10 @@
   </div>
 </template>
 <script>
-import { getBrand } from '@/api';
 export default {
   name: "MallBrand",
-  data() {
-    return {
-      gridItems:[],
-      baseUrl:"http://localhost:8000/images/"
-    }
-  },
-  methods:{
-    getData(){
-      getBrand().then(res => {
-        this.gridItems = res.data.map((item) => {
-          item.brand_image = this.baseUrl+item.brand_image
-          return item
-        })
-      })
-    }
-  },
-  mounted(){
-    this.getData()
+  props:{
+    brand:[]
   }
 }
 </script>

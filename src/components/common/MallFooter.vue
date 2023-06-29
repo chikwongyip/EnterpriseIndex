@@ -2,7 +2,9 @@
    <div class="container">
       <h1>探索我们的品牌</h1>
       <div class="line"></div>
-      <MallBrand> </MallBrand>
+      <mall-brand :brand="brand">
+
+      </mall-brand>
       <div style="height:50px"></div>
       <div class="feature-area mt-80">
         <div class="container">
@@ -10,7 +12,7 @@
             <div class="col-md-4">
               <div class="single-feature">
                 <div class="feature-icon">
-                  <PhoneIcon class="icon"></PhoneIcon>
+                  <phone-icon class="icon"></phone-icon>
                 </div>
                 <div class="feature-content">
                   <h3>{{ company.tel }}</h3>
@@ -21,7 +23,7 @@
             <div class="col-md-4">
               <div class="single-feature">
                 <div class="feature-icon">
-                  <MaillIcon class="icon"></MaillIcon>
+                  <email-icon class="icon"></email-icon>
                 </div>
                 <div class="feature-content">
                   <h3>{{ company.email }}</h3>
@@ -32,7 +34,7 @@
             <div class="col-md-4">
               <div class="single-feature">
                 <div class="feature-icon">
-                  <LocationIcon class="icon"></LocationIcon>
+                 <location-icon class="icon"></location-icon>
                 </div>
                 <div class="feature-content">
                   <h4>{{ company.address }}</h4>
@@ -64,32 +66,25 @@
 
 <script>
 import PhoneIcon from 'vue-ionicons/dist/md-call.vue'
-import MaillIcon from 'vue-ionicons/dist/md-mail.vue'
+import EmailIcon from 'vue-ionicons/dist/md-mail.vue'
 import LocationIcon from 'vue-ionicons/dist/md-locate.vue'
 import MallBrand from './MallBrand.vue';
-import { companyInfo } from '@/api';
 export default {
   name: "MallFooter",
   components:{
     MallBrand,
     PhoneIcon,
     LocationIcon,
-    MaillIcon
+    EmailIcon
+  },
+  props:{
+    company:{},
+    brand:{}
   },
   data(){
     return{
       message:"",
-      baseUrl:"http://localhost:8000/images/",
-      brand:[],
-      company:{}
-    }
-  },
-  methods:{
-    getData(){
-      companyInfo().then(res => {
-        this.company = res.data[0];
-        console.log(this.company)
-      })
+      baseUrl:"http://localhost:8000/images/"
     }
   },
   mounted(){

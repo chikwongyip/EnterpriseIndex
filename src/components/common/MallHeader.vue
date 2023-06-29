@@ -3,7 +3,7 @@
     <div class="header">
       <div class="image">
         <el-image 
-          :src="src"
+          :src="logoUrl"
           :fit="fit"
           style="width:200px; height:80px"
           >
@@ -60,20 +60,18 @@
   </div>
 </template>
 <script>
-import { companyInfo,
-         applicationList,
-         getProduct,
-         getService } from "@/api";
 export default {
   name: "MallHeader",
+  props:{
+    // eslint-disable-next-line vue/require-prop-type-constructor
+    logoUrl:String,
+    product:[],
+    service:[],
+    applicationList:[],
+  },
   data(){
     return{
       baseUrl:"http://localhost:8000/images/",
-      src:"",
-      data:[],
-      applicationList:[],
-      product:[],
-      service:[],
       selection:[
         {
           label:"品牌",
@@ -93,21 +91,6 @@ export default {
     }
   },
   methods:{
-    getData(){
-      companyInfo().then(res => {
-        this.data = res.data
-        this.src = this.baseUrl + this.data[0].logo;
-      })
-      applicationList().then(res => {
-        this.applicationList = res.data
-      })
-      getProduct().then(res => {
-        this.product = res.data.product
-      })
-      getService().then(res => {
-        this.service = res.data
-      })
-    },
     submitSearch(name,type){
       let result = [];
       const regExp = new RegExp(name,"g")
@@ -128,9 +111,6 @@ export default {
       }
       return result
     }
-  },
-  mounted(){
-    this.getData()
   }
 }
 </script>
