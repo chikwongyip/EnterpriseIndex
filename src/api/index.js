@@ -18,3 +18,6 @@ export const getBrand = () => {
 export const getActiveImage = () => {
     return fetchGet(`${baseUrl}/admin/activeImage`)
 }
+export const getProductById = (id) => {
+    return fetchGet(`${baseUrl}/admin/productList`,{id:id})
+}

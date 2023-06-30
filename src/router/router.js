@@ -5,23 +5,28 @@ import ProductDetailPage from "@/page/ProductDetailPage.vue";
 let routes = [
     {
         path: "/",
-        component: IndexPage
+        component: IndexPage,
+        name:"index"
     },
     {
         path: "/service",
-        component: ServicePage
+        component: ServicePage,
+        name:"service"
     },
     {
         path: "/productList",
-        component: ProductListPage
+        component: ProductListPage,
+        name:"productList"
     },
     {
-        path:"/productDetail",
-        component:ProductDetailPage
+        path:"/productDetail/:product_id",
+        component:ProductDetailPage,
+        name:"productDetail"
     },
     {
         path: "/productSearch",
-        component: ProductListPage
+        component: ProductListPage,
+        name:"productSearch"
     }
 ];
 export default routes;

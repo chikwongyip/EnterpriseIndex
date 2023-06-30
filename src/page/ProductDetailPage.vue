@@ -2,7 +2,7 @@
   import MallHeader from "@/components/common/MallHeader.vue";
   import MallFooter from "@/components/common/MallFooter.vue";
   import ProductDetail from "@/components/ProductDetail.vue";
-  import {applicationList, companyInfo, getBrand, getProduct, getService} from "@/api";
+  import {applicationList, companyInfo, getBrand, getProductById, getService} from "@/api";
   export default {
     name:"ProductDetailPage",
     components:{
@@ -15,7 +15,7 @@
         company:{ },
         baseUrl:"http://localhost:8000/images/",
         logoUrl:"",
-        product:[],
+        product:{},
         service:[],
         applicationList:[],
         brand:[]
@@ -27,7 +27,7 @@
           this.company = res.data[0]
           this.logoUrl= this.baseUrl + this.company.logo
         })
-        getProduct().then( res => {
+        getProductById(this.route.query.product_id).then( res => {
           this.product = res.data.product
         })
         getService().then( res => {
@@ -63,7 +63,11 @@
       </mall-header>
     </el-header>
     <el-main style="margin-top: 80px">
-      <product-detail></product-detail>
+      <product-detail
+          :product-detail="product"
+      >
+
+      </product-detail>
     </el-main>
     <el-footer>
       <mall-footer

@@ -40,13 +40,15 @@
         <el-submenu index="1" v-bind="applicationList">
           <template slot="title">应用</template>
           <el-menu-item v-for="(item,id) in applicationList" :key="id">
-            {{ item.name }}
+            <router-link to="/login">{{ item.name }}</router-link>
           </el-menu-item>
         </el-submenu>
         <el-submenu index="2" v-bind="product">
           <template slot="title">产品</template>
           <el-menu-item v-for="(item,index) in product" :key="index">
-            {{ item.product_name }}
+            <router-link :to="{path:'/productDetail',query:{product_id: item.product_id }}">
+              {{ item.product_name }}
+            </router-link>
           </el-menu-item>
         </el-submenu>
         <el-submenu index="3">
