@@ -4,14 +4,8 @@
       <div class="col-md-6">
         <div class="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="https://via.placeholder.com/800x400" alt="Slide 1">
-            </div>
-            <div class="carousel-item">
-              <img src="https://via.placeholder.com/800x400" alt="Slide 2">
-            </div>
-            <div class="carousel-item">
-              <img src="https://via.placeholder.com/800x400" alt="Slide 3">
+            <div class="carousel-item" v-for="item in productImages" :key="item.pic_id">
+              <img src="item.product_pic" alt="Slide 2">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -25,17 +19,11 @@
         </div>
       </div>
       <div class="col-md-6">
-        <h2>Title</h2>
-        <p>Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Nulla facilisis turpis sodales vestibulum lacinia. Integer lorem arcu, aliquet ut ultrices ut, euismod eu lorem. Mauris auctor interdum cursus. Fusce id sapien ante. Mauris at luctus nisi. Praesent vitae tortor dolor. Suspendisse eleifend eget urna a tincidunt. Vestibulum et volutpat tortor. Nam ut ipsum et ipsum faucibus elementum. Sed in justo tortor. Mauris aliquam orci leo.
-          In ac pulvinar nunc. Curabitur bibendum metus id lectus porta, et volutpat nisl malesuada.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Nulla facilisis turpis sodales vestibulum lacinia. Integer lorem arcu,
-          aliquet ut ultrices ut, euismod eu lorem. Mauris auctor interdum cursus.
-          Fusce id sapien ante. Mauris at luctus nisi. Praesent vitae tortor dolor.
-          Suspendisse eleifend eget urna a tincidunt. Vestibulum et volutpat tortor.
-          Nam ut ipsum et ipsum faucibus elementum. Sed in justo tortor. Mauris aliquam orci leo.
-          In ac pulvinar nunc. Curabitur bibendum metus id lectus porta, et volutpat nisl malesuada.</p>
+        <h2>{{ productDetails.product_name }}</h2>
+        <h3>{{ productDetails.brand_name}}</h3>
+        <h3>{{ productDetails.category_name}}</h3>
+        <p>{{ productDetails.product_desc }}</p>
+        <p>{{ productDetails.product_standard }}</p>
       </div>
     </div>
     <div class="row">
@@ -77,7 +65,8 @@
 export default {
   name: "ProductDetail",
   props:{
-    productDetail:{}
+    productDetails:{},
+    productImages:[],
   }
 }
 </script>

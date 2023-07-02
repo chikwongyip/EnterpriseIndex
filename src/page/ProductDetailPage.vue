@@ -2,7 +2,7 @@
   import MallHeader from "@/components/common/MallHeader.vue";
   import MallFooter from "@/components/common/MallFooter.vue";
   import ProductDetail from "@/components/ProductDetail.vue";
-  import {applicationList, companyInfo, getBrand, getProductById, getService} from "@/api";
+  import {applicationList, companyInfo, getBrand, getService,getProduct} from "@/api";
   export default {
     name:"ProductDetailPage",
     components:{
@@ -15,10 +15,14 @@
         company:{ },
         baseUrl:"http://localhost:8000/images/",
         logoUrl:"",
-        product:{},
+        product:[],
+        productImagesList:[],
         service:[],
         applicationList:[],
-        brand:[]
+        brand:[],
+        // 传入body 参数
+        productDetails:{},
+        productImages:[]
       }
     },
     methods:{
@@ -27,8 +31,9 @@
           this.company = res.data[0]
           this.logoUrl= this.baseUrl + this.company.logo
         })
-        getProductById(this.route.query.product_id).then( res => {
+        getProduct().then( res => {
           this.product = res.data.product
+          this.productImagesList = res.data.productImages
         })
         getService().then( res => {
           this.service = res.data
@@ -45,7 +50,23 @@
       }
     },
     mounted() {
+      // 获取查询的产品ID
+      this.product_id = this.$route.query.product_id
+      // 获取所有数据
       this.getData()
+      console.log(this.product)
+      console.log(this.product_id)
+    // 根据产品ID 获取对应产品描述 图片
+      this.productDetails = this.product.filter( item => {
+        return item.product_id == this.product_id
+      })
+      console.log(this.productDetails)
+      this.productImages = this.productImagesList.filter( item => {
+        if(item.product_id == this.product_id){
+          item.product_pic = this.baseUrl + item.product_pic
+          return item
+        }
+      })
     }
   }
 </script>
@@ -64,7 +85,8 @@
     </el-header>
     <el-main style="margin-top: 80px">
       <product-detail
-          :product-detail="product"
+          :product-details="productDetails"
+          :product-images="productImages"
       >
 
       </product-detail>

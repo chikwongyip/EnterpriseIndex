@@ -19,7 +19,7 @@ let routes = [
         name:"productList"
     },
     {
-        path:"/productDetail/:product_id",
+        path:"/productDetail",
         component:ProductDetailPage,
         name:"productDetail"
     },
