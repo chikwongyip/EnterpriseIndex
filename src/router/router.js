@@ -1,5 +1,4 @@
 import IndexPage from "@/page/IndexPage";
-import ServicePage from "@/page/ServicePage";
 import ProductListPage from "@/page/ProductListPage.vue";
 import ProductDetailPage from "@/page/ProductDetailPage.vue";
 let routes = [
@@ -7,11 +6,6 @@ let routes = [
         path: "/",
         component: IndexPage,
         name:"index"
-    },
-    {
-        path: "/service",
-        component: ServicePage,
-        name:"service"
     },
     {
         path: "/productList",

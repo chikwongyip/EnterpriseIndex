@@ -3,9 +3,9 @@
     <el-header>
       <mall-header
           :logoUrl="logoUrl"
-          :application-list="applicationList"
           :product="product"
-          :service="service"
+          :brand="brand"
+          :category="category"
       >
       </mall-header>
     </el-header>
@@ -26,7 +26,7 @@
   </el-container>
 </template>
 <script>
-import { companyInfo,getProduct,getService,applicationList,getBrand } from "@/api";
+import { companyInfo,getProduct,getBrand,getCategory } from "@/api";
 import MallHeader from "@/components/common/MallHeader";
 import MallFooter from "@/components/common/MallFooter";
 import IndexBody from "@/components/IndexBody";
@@ -38,9 +38,8 @@ export default {
       baseUrl:"http://localhost:8000/images/",
       logoUrl:"",
       product:[],
-      service:[],
-      applicationList:[],
-      brand:[]
+      brand:[],
+      category:[]
     }
   },
   components:{
@@ -57,17 +56,16 @@ export default {
       getProduct().then( res => {
         this.product = res.data.product
       })
-      getService().then( res => {
-        this.service = res.data
-      })
-      applicationList().then( res => {
-        this.applicationList = res.data
-      })
       getBrand().then( res => {
         this.brand = res.data.map( item => {
           item.brand_image = this.baseUrl + item.brand_image
           return item
         })
+      })
+      getCategory().then( res => {
+        this.category = res.data
+        console.log(res.data)
+        console.log(this.category)
       })
     }
   },

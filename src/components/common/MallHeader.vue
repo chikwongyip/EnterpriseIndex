@@ -38,9 +38,9 @@
         style="border-radius:15px"
         >
         <el-submenu index="1" v-bind="applicationList">
-          <template slot="title">应用</template>
-          <el-menu-item v-for="(item,id) in applicationList" :key="id">
-            <router-link to="/login">{{ item.name }}</router-link>
+          <template slot="title">品牌</template>
+          <el-menu-item v-for="(item) in brand" :key="item.brand_id">
+            <router-link to="/login">{{ item.brand_name }}</router-link>
           </el-menu-item>
         </el-submenu>
         <el-submenu index="2" v-bind="product">
@@ -52,9 +52,9 @@
           </el-menu-item>
         </el-submenu>
         <el-submenu index="3">
-          <template slot="title">服务</template>
-          <el-menu-item v-for="(item,index) in service" :key="index">
-            {{ item.name }}
+          <template slot="title">产品类型</template>
+          <el-menu-item v-for="item in category" :key="item.category_id">
+            {{ item.category_name }}
           </el-menu-item>
         </el-submenu>
       </el-menu>
@@ -68,8 +68,8 @@ export default {
     // eslint-disable-next-line vue/require-prop-type-constructor
     logoUrl:String,
     product:[],
-    service:[],
-    applicationList:[],
+    brand:[],
+    category:[]
   },
   data(){
     return{

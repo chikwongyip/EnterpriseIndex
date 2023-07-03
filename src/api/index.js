@@ -21,3 +21,6 @@ export const getActiveImage = () => {
 export const getProductById = (id) => {
     return fetchGet(`${baseUrl}/admin/productList`,{id:id})
 }
+export const getCategory = () => {
+    return fetchGet(`${baseUrl}/admin/categoryList`)
+}

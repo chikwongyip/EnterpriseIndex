@@ -2,7 +2,7 @@
   import MallHeader from "@/components/common/MallHeader.vue";
   import MallFooter from "@/components/common/MallFooter.vue";
   import ProductDetail from "@/components/ProductDetail.vue";
-  import {applicationList, companyInfo, getBrand, getService,getProduct} from "@/api";
+  import { companyInfo, getBrand, getProduct,getCategory} from "@/api";
   export default {
     name:"ProductDetailPage",
     components:{
@@ -16,12 +16,11 @@
         baseUrl:"http://localhost:8000/images/",
         logoUrl:"",
         product:[],
-        service:[],
-        applicationList:[],
         brand:[],
         // 传入body 参数
         productDetails:{},
-        productImages:[]
+        productImages:[],
+        category:[]
       }
     },
     methods:{
@@ -44,17 +43,14 @@
             }
           })
         })
-        getService().then( res => {
-          this.service = res.data
-        })
-        applicationList().then( res => {
-          this.applicationList = res.data
-        })
         getBrand().then( res => {
           this.brand = res.data.map( item => {
             item.brand_image = this.baseUrl + item.brand_image
             return item
           })
+        })
+        getCategory().then( res => {
+          this.category = res.data
         })
       }
     },
@@ -69,9 +65,9 @@
     <el-header>
       <mall-header
           :logoUrl="logoUrl"
-          :application-list="applicationList"
+          :brand="brand"
+          :category="category"
           :product="product"
-          :service="service"
       >
 
       </mall-header>
