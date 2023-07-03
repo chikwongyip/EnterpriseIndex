@@ -16,7 +16,6 @@
         baseUrl:"http://localhost:8000/images/",
         logoUrl:"",
         product:[],
-        productImagesList:[],
         service:[],
         applicationList:[],
         brand:[],
@@ -33,7 +32,17 @@
         })
         getProduct().then( res => {
           this.product = res.data.product
-          this.productImagesList = res.data.productImages
+          this.productImages = res.data.images.filter( item => {
+            if(item.product_id == this.$route.query.product_id){
+              item.product_pic = this.baseUrl + item.product_pic
+              return  item
+            }
+          })
+          this.productDetails = this.product.filter( item => {
+            if (item.product_id == this.$route.query.product_id){
+              return item
+            }
+          })
         })
         getService().then( res => {
           this.service = res.data
@@ -50,23 +59,7 @@
       }
     },
     mounted() {
-      // 获取查询的产品ID
-      this.product_id = this.$route.query.product_id
-      // 获取所有数据
       this.getData()
-      console.log(this.product)
-      console.log(this.product_id)
-    // 根据产品ID 获取对应产品描述 图片
-      this.productDetails = this.product.filter( item => {
-        return item.product_id == this.product_id
-      })
-      console.log(this.productDetails)
-      this.productImages = this.productImagesList.filter( item => {
-        if(item.product_id == this.product_id){
-          item.product_pic = this.baseUrl + item.product_pic
-          return item
-        }
-      })
     }
   }
 </script>
@@ -85,8 +78,8 @@
     </el-header>
     <el-main style="margin-top: 80px">
       <product-detail
-          :product-details="productDetails"
-          :product-images="productImages"
+          :product="productDetails"
+          :images="productImages"
       >
 
       </product-detail>
