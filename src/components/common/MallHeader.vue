@@ -27,34 +27,35 @@
       </div>
     </div>
     <div class="menu">
-      <el-menu 
-        :default-active="activeIndex" 
+      <el-menu
         class="el-menu-demo" 
-        mode="horizontal" 
-        @select="handleSelect" 
+        mode="horizontal"
         background-color="#1B438C"
         text-color="#FDFFFD"
         active-text-color="#FFFEB1"
-        style="border-radius:15px"
         >
-        <el-submenu index="1" v-bind="applicationList">
+        <el-submenu index="1">
           <template slot="title">品牌</template>
           <el-menu-item v-for="(item) in brand" :key="item.brand_id">
-            <router-link to="/login">{{ item.brand_name }}</router-link>
+            <router-link class="router-link" :to="{path:'/productList',query:{brand_id: item.brand_id }}">
+              {{ item.brand_name }}
+            </router-link>
           </el-menu-item>
         </el-submenu>
         <el-submenu index="2" v-bind="product">
           <template slot="title">产品</template>
           <el-menu-item v-for="(item,index) in product" :key="index">
-            <router-link :to="{path:'/productDetail',query:{product_id: item.product_id }}">
-              {{ item.product_name }}
+            <router-link class="router-link" :to="{path:'/productDetail',query:{product_id: item.product_id }}">
+              {{item.product_name}}
             </router-link>
           </el-menu-item>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">产品类型</template>
           <el-menu-item v-for="item in category" :key="item.category_id">
-            {{ item.category_name }}
+            <router-link class="router-link" :to="{path:'/productList',query:{category_id: item.category_id}}">
+              {{ item.category_name}}
+            </router-link>
           </el-menu-item>
         </el-submenu>
       </el-menu>
@@ -123,5 +124,8 @@ export default {
   }
   .menu{
     border-radius:25px
+  }
+  .router-link{
+    color:white;
   }
 </style>

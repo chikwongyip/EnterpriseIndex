@@ -1,4 +1,5 @@
 <script>
+//TODO:页面跳转和刷新功能
 import MallFooter from "@/components/common/MallFooter.vue";
 import ProductList from "@/components/ProductList.vue";
 import MallHeader from "@/components/common/MallHeader.vue";
@@ -30,6 +31,14 @@ export default {
         this.product = []
         if (this.$route.query.name){
           this.product = this.search(this.$route.query.name,this.$route.query.type,res.data.product)
+        }else if(this.$route.query.brand_id){
+          this.product = res.data.product.filter( item => {
+            return item.brand_id = this.$route.query.brand_id
+          })
+        }else if(this.$route.query.category_id){
+          this.product = res.data.product.filter( item => {
+            return item.category_id = this.$route.query.category_id
+          })
         }else{
           this.product = res.data.product
         }
@@ -96,7 +105,6 @@ export default {
           :company="company"
           :brand="brand"
       >
-
       </mall-footer>
     </el-footer>
   </el-container>
