@@ -33,14 +33,14 @@
         background-color="#1B438C"
         text-color="#FDFFFD"
         active-text-color="#FFFEB1"
-        :router="true"
+        router
+        :default-active="this.$route.path"
         >
-        <el-submenu index="1" v-bind="brand">
+        <el-submenu index="/productList">
           <template slot="title">品牌</template>
           <el-menu-item v-for="(item) in brand"
                         :key="item.brand_id"
-                        :route="{path:'/productList',query:{brand_id: item.brand_id }}"
-          >
+                        :route="{name:'productList',query:{brand_id:item.brand_id }}">
             {{item.brand_name}}
           </el-menu-item>
         </el-submenu>
