@@ -33,13 +33,15 @@
         background-color="#1B438C"
         text-color="#FDFFFD"
         active-text-color="#FFFEB1"
+        :router="true"
         >
-        <el-submenu index="1">
+        <el-submenu index="1" v-bind="brand">
           <template slot="title">品牌</template>
-          <el-menu-item v-for="(item) in brand" :key="item.brand_id">
-            <router-link class="router-link" :to="{path:'/productList',query:{brand_id: item.brand_id }}">
-              {{ item.brand_name }}
-            </router-link>
+          <el-menu-item v-for="(item) in brand"
+                        :key="item.brand_id"
+                        :route="{path:'/productList',query:{brand_id: item.brand_id }}"
+          >
+            {{item.brand_name}}
           </el-menu-item>
         </el-submenu>
         <el-submenu index="2" v-bind="product">
@@ -77,6 +79,7 @@ export default {
       baseUrl:"http://localhost:8000/images/",
       name:"",
       type:"",
+      brand_id:"",
       selection:[
         {
           label:"品牌",
@@ -99,8 +102,13 @@ export default {
         name:this.name,
         type:this.type
         }}).catch(()=>{})
-    }
+    },
   },
+  computed:{
+    brandLink(){
+      return `/productList/brand_id/` + this.brand_id
+    }
+  }
 }
 </script>
 

@@ -64,8 +64,6 @@ export default {
       })
       getCategory().then( res => {
         this.category = res.data
-        console.log(res.data)
-        console.log(this.category)
       })
     }
   },
