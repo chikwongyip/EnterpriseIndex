@@ -25,6 +25,9 @@
           <el-button slot="append" icon="el-icon-search" @click="submitSearch"></el-button>
         </el-input>
       </div>
+      <div class="button">
+        <el-link type="info" href="http://localhost:8001/login">后台登录</el-link>
+      </div>
     </div>
     <div class="menu">
       <el-menu
@@ -129,6 +132,9 @@ export default {
   }
   .searchBar{
     flex-basis: 70%;
+  }
+  .button{
+    flex-basis: 5%;
   }
   .el-select .el-input{
     width: 130px;
