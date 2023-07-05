@@ -75,7 +75,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.query.brand_id)
     this.getData()
   },
 }
