@@ -20,17 +20,9 @@
       </div>
       <div class="col-md-6">
         <h2>
-          <li class="el-icon-collection"></li>
+          <div class="el-icon-collection"></div>
           名称:{{ product[0].product_name }}
         </h2>
-        <h4>
-          <li class="el-icon-collection"></li>
-          品牌:{{ product[0].brand_name}}
-        </h4>
-        <h4>
-          <li class="el-icon-collection"></li>
-          类型:{{ product[0].category_name}}
-        </h4>
         <h4 v-if="product[0].product_standard == ''">
           规格:暂无
         </h4>
@@ -50,7 +42,7 @@
         <div class="card" style="width: 18rem;">
           <img src="" class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-text">{{ product[0].product_name }}</p>
+            <p class="card-text">{{ product[0].brand_name }}</p>
           </div>
         </div>
       </div>
@@ -58,7 +50,7 @@
         <div class="card" style="width: 18rem;">
           <img src="" class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">{{ product[0].category_name}}</p>
           </div>
         </div>
       </div>
@@ -66,7 +58,7 @@
         <div class="card" style="width: 18rem;">
           <img src="" class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">{{ product[0].product_standard}}</p>
           </div>
         </div>
       </div>
@@ -80,7 +72,7 @@ export default {
   props:{
     product:{},
     images:[],
-  },
+  }
 }
 </script>
 

@@ -113,11 +113,6 @@ export default {
         }}).catch(()=>{})
     },
   },
-  computed:{
-    brandLink(){
-      return `/productList/brand_id/` + this.brand_id
-    }
-  }
 }
 </script>
 

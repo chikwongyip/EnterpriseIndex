@@ -23,7 +23,6 @@
 
 <script>
 import { getActiveImage } from "@/api";
-
 export default {
   data(){
     return{
@@ -43,7 +42,6 @@ export default {
   },
   mounted() {
     this.getData()
-    console.log(this.$route)
   }
 }
 </script>
