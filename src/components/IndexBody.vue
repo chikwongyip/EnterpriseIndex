@@ -27,7 +27,7 @@ export default {
   data(){
     return{
       images:[],
-      baseUrl:"http://localhost:8000/images/"
+      baseUrl:"http://120.77.25.98:8000/images/"
     }
   },
   methods:{

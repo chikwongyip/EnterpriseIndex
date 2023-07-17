@@ -14,7 +14,7 @@ export default {
   data(){
     return{
       company:{ },
-      baseUrl:"http://localhost:8000/images/",
+      baseUrl:"http://120.77.25.98:8000/images/",
       logoUrl:"",
       product:[],
       brand:[],

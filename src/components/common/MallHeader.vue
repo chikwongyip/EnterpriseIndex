@@ -85,7 +85,7 @@ export default {
   },
   data(){
     return{
-      baseUrl:"http://localhost:8000/images/",
+      baseUrl:"http://120.77.25.98:8000/images/",
       name:"",
       type:"",
       brand_id:"",
