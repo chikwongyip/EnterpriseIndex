@@ -83,8 +83,7 @@ export default {
   },
   data(){
     return{
-      message:"",
-      baseUrl:"http://localhost:8000/images/"
+      message:""
     }
   },
   mounted(){
