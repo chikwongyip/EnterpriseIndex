@@ -14,7 +14,6 @@ export default {
   data(){
     return{
       company:{ },
-      baseUrl:"http://120.77.25.98:8000/images/",
       logoUrl:"",
       product:[],
       brand:[],
@@ -25,7 +24,7 @@ export default {
     getData(){
       companyInfo().then( res => {
         this.company = res.data[0]
-        this.logoUrl= this.baseUrl + this.company.logo
+        this.logoUrl= process.env.VUE_APP_URL + '/images/' + this.company.logo
       })
       getProduct().then( res => {
         this.product = []
@@ -45,7 +44,7 @@ export default {
       })
       getBrand().then( res => {
         this.brand = res.data.map( item => {
-          item.brand_image = this.baseUrl + item.brand_image
+          item.brand_image = process.env.VUE_APP_URL + '/images/' + item.brand_image
           return item
         })
       })

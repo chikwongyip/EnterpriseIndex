@@ -26,15 +26,14 @@ import { getActiveImage } from "@/api";
 export default {
   data(){
     return{
-      images:[],
-      baseUrl:"http://120.77.25.98:8000/images/"
+      images:[]
     }
   },
   methods:{
     getData(){
       getActiveImage().then(res => {
         this.images = res.data.map( item => {
-          item.product_pic = this.baseUrl + item.product_pic
+          item.product_pic = process.env.VUE_APP_URL + '/images/' + item.product_pic
           return item
         })
       })

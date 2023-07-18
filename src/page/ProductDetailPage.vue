@@ -13,7 +13,6 @@
     data(){
       return{
         company:{ },
-        baseUrl:"http://120.77.25.98:8000/images/",
         logoUrl:"",
         product:[],
         brand:[],
@@ -27,13 +26,13 @@
       getData(){
         companyInfo().then( res => {
           this.company = res.data[0]
-          this.logoUrl= this.baseUrl + this.company.logo
+          this.logoUrl= process.env.VUE_APP_URL + '/images/' + this.company.logo
         })
         getProduct().then( res => {
           this.product = res.data.product
           this.productImages = res.data.images.filter( item => {
             if(item.product_id == this.$route.query.product_id){
-              item.product_pic = this.baseUrl + item.product_pic
+              item.product_pic = process.env.VUE_APP_URL + '/images/' + item.product_pic
               return  item
             }
           })
@@ -45,7 +44,7 @@
         })
         getBrand().then( res => {
           this.brand = res.data.map( item => {
-            item.brand_image = this.baseUrl + item.brand_image
+            item.brand_image = process.env.VUE_APP_URL + '/images/'+ item.brand_image
             return item
           })
         })

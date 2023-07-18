@@ -1,5 +1,5 @@
 import { fetchGet } from "./public";
-let baseUrl = "http://120.77.25.98:8000/api";
+let baseUrl = process.env.VUE_APP_URL;
 export const companyInfo = () => {
     return fetchGet(`${baseUrl}/admin/company`);
 }
