@@ -20,10 +20,10 @@
       </div>
       <div class="col-md-6">
         <h2>
-          <div class="el-icon-collection"></div>
+          <li class="el-icon-collection"></li>
           名称:{{ product[0].product_name }}
         </h2>
-        <h4 v-if="product[0].product_standard == ''">
+        <h4 v-if="product[0].product_standard === ''">
           规格:暂无
         </h4>
         <h4 v-else>
