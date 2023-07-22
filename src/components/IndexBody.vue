@@ -33,7 +33,7 @@ export default {
     getData(){
       getActiveImage().then(res => {
         this.images = res.data.map( item => {
-          item.product_pic = process.env.VUE_APP_URL + '/images/' + item.product_pic
+          item.product_pic = process.env.VUE_APP_IMAGES + item.product_pic
           return item
         })
       })

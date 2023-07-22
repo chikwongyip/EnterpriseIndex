@@ -8,7 +8,7 @@ import routes from "../src/router/router"
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-
+console.log(process.env.VUE_APP_IMAGE)
 Vue.use(VueRouter)
 const router = new VueRouter({
   mode:"history",

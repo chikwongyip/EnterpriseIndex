@@ -6,6 +6,7 @@
           :src="logoUrl"
           :fit="fit"
           style="width:200px; height:80px"
+          :load="imageOnLoad"
           >
             <div slot="placeholder" class="image-slot">
               加载中<span class="dot">...</span>
@@ -26,7 +27,7 @@
         </el-input>
       </div>
       <div class="button">
-        <el-link type="info" href="http://localhost:8001/login">后台登录</el-link>
+        <el-button type="primary" @click="clickToLogin" style="background-color:#1B438C ">后台登录</el-button>
       </div>
     </div>
     <div class="menu">
@@ -88,6 +89,7 @@ export default {
       name:"",
       type:"",
       brand_id:"",
+      loginUrl:"",
       selection:[
         {
           label:"品牌",
@@ -111,7 +113,16 @@ export default {
         type:this.type
         }}).catch(()=>{})
     },
+    imageOnLoad(e){
+      console.log(e)
+    },
+    clickToLogin(){
+      this.$router.push(this.loginUrl)
+    }
   },
+  computed(){
+    this.loginUrl = process.env.VUE_APP_URL + "/user/login"
+  }
 }
 </script>
 

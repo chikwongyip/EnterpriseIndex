@@ -50,7 +50,7 @@ export default {
     getData(){
       companyInfo().then( res => {
         this.company = res.data[0]
-        this.logoUrl= process.env.VUE_APP_URL + '/images/' + this.company.logo
+        this.logoUrl= process.env.VUE_APP_IMAGE + this.company.logo
       })
       getProduct().then( res => {
         this.product = res.data.product
