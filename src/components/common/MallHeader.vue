@@ -5,7 +5,7 @@
         <el-image 
           :src="logoUrl"
           :fit="fit"
-          style="width:200px; height:80px"
+          style="width:180px; height:80px"
           :load="imageOnLoad"
           >
             <div slot="placeholder" class="image-slot">

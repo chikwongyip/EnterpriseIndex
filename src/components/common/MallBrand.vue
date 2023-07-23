@@ -1,9 +1,18 @@
 <template>
   <div class="container">
     <div class="grid-container">
-      <div class="grid-item" v-for="item in brand" :key="item.brand_id">
-        <img :src="item.brand_image" alt="" />
-        <p>{{ item.brand_name }}</p>
+      <div class="grid-item" v-for="item in brand" :key="item.brand_id" style="text-align:center">
+        <el-image
+            :src="item.brand_image"
+            :fit="fit"
+            style="width:200px; height:80px"
+            :load="imageOnLoad"
+        >
+          <div slot="placeholder" class="image-slot">
+            加载中<span class="dot">...</span>
+          </div>
+        </el-image>
+        <p>{{item.brand_name}}</p>
       </div>
     </div>
   </div>
@@ -13,6 +22,11 @@ export default {
   name: "MallBrand",
   props:{
     brand:[]
+  },
+  methods:{
+    imageOnLoad(e) {
+      console.log(e)
+    }
   }
 }
 </script>

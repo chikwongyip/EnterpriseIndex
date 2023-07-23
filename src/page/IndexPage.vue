@@ -57,7 +57,7 @@ export default {
       })
       getBrand().then( res => {
         this.brand = res.data.map( item => {
-          item.brand_image = process.env.VUE_APP_URL + '/images/' + item.brand_image
+          item.brand_image = process.env.VUE_APP_IMAGE + item.brand_image
           return item
         })
       })
