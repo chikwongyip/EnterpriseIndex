@@ -2,21 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <div class="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item" v-for="item in images" :key="item.pic_id">
-              <img src="item.product_pic" alt="Slide 2">
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+        <product-carousel
+            :images="carouselList"
+        >
+        </product-carousel>
       </div>
       <div class="col-md-6">
         <h2>
@@ -67,11 +56,26 @@
 </template>
 
 <script>
+import ProductCarousel from "@/components/ProductCarousel.vue";
 export default {
   name: "ProductDetail",
+  components: {ProductCarousel},
   props:{
     product:{},
     images:[],
+  },
+  mounted() {
+    console.log(this.images)
+  },
+  computed:{
+    carouselList(){
+      return(
+        this.images.map(item => {
+          item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
+          return item
+        })
+      )
+    }
   }
 }
 </script>

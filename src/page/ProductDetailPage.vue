@@ -1,9 +1,10 @@
 <script>
-  import MallHeader from "@/components/common/MallHeader.vue";
-  import MallFooter from "@/components/common/MallFooter.vue";
-  import ProductDetail from "@/components/ProductDetail.vue";
-  import { companyInfo, getBrand, getProduct,getCategory} from "@/api";
-  export default {
+import MallHeader from "@/components/common/MallHeader.vue";
+import MallFooter from "@/components/common/MallFooter.vue";
+import ProductDetail from "@/components/ProductDetail.vue";
+import {companyInfo, getBrand, getCategory, getProduct} from "@/api";
+
+export default {
     name:"ProductDetailPage",
     components:{
       MallHeader,
@@ -17,8 +18,7 @@
         product:[],
         brand:[],
         // 传入body 参数
-        productDetails:{},
-        productImages:[],
+        images:[],
         category:[]
       }
     },
@@ -30,17 +30,7 @@
         })
         getProduct().then( res => {
           this.product = res.data.product
-          this.productImages = res.data.images.filter( item => {
-            if(item.product_id == this.$route.query.product_id){
-              item.product_pic = process.env.VUE_APP_URL + '/images/' + item.product_pic
-              return  item
-            }
-          })
-          this.productDetails = this.product.filter( item => {
-            if (item.product_id == this.$route.query.product_id){
-              return item
-            }
-          })
+          this.images = res.data.images
         })
         getBrand().then( res => {
           this.brand = res.data.map( item => {
@@ -55,6 +45,22 @@
     },
     mounted() {
       this.getData()
+    },
+    computed:{
+      productImages(){
+        return (
+            this.images.filter(item => {
+              return (item.product_id == this.$route.query.product_id)
+            })
+        )
+      },
+      productDetails(){
+        return (
+            this.product.filter(item =>{
+              return (item.product_id == this.$route.query.product_id)
+            })
+        )
+      }
     }
   }
 </script>
