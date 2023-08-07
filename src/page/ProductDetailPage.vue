@@ -30,7 +30,10 @@ export default {
         })
         getProduct().then( res => {
           this.product = res.data.product
-          this.images = res.data.images
+          this.images = res.data.images.filter( item => {
+            item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
+            return item
+          })
         })
         getBrand().then( res => {
           this.brand = res.data.map( item => {
@@ -77,7 +80,7 @@ export default {
 
       </mall-header>
     </el-header>
-    <el-main style="margin-top: 80px">
+    <el-main style="margin-top: 100px">
       <product-detail
           :product="productDetails"
           :images="productImages"

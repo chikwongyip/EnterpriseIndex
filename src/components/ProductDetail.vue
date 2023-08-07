@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col-md-6">
         <product-carousel
-            :images="carouselList"
+            :images="images"
+            style="height: 800px;width: 500px"
         >
         </product-carousel>
       </div>
@@ -26,32 +27,6 @@
 
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">{{ product[0].brand_name }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">{{ product[0].category_name}}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">{{ product[0].product_standard}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -66,16 +41,6 @@ export default {
   },
   mounted() {
     console.log(this.images)
-  },
-  computed:{
-    carouselList(){
-      return(
-        this.images.map(item => {
-          item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
-          return item
-        })
-      )
-    }
   }
 }
 </script>

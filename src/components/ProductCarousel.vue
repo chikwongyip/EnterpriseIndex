@@ -20,18 +20,15 @@
           }
         ]
       }
-    },
-    mounted() {
-      console.log(this.images)
     }
   }
 </script>
 
 <template>
-  <div id ="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div id ="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div v-for="(item, index) in images" :key="index" :class="['carousel-item', index === 0 ? 'active' : '']">
-        <img :src="item.product_pic" class="d-block w-100" :alt="item.title">
+      <div v-for="(item, index) in images" :key="index" :class="['carousel-item', index === 0 ? ' active' : '']" data-bs-interval="10000">
+        <img :src="item.product_pic" class="d-block w-100" :alt="item.product_id">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
