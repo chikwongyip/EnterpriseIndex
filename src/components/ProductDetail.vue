@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <product-carousel
+        <carousel-component
             :images="images"
-            style="height: 800px;width: 500px"
         >
-        </product-carousel>
+
+        </carousel-component>
       </div>
       <div class="col-md-6">
         <h2>
@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import ProductCarousel from "@/components/ProductCarousel.vue";
+import carouselComponent from "@/components/common/CarouselComponent.vue";
 export default {
   name: "ProductDetail",
-  components: {ProductCarousel},
+  components: {carouselComponent},
   props:{
     product:{},
     images:[],
