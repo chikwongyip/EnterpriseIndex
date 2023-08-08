@@ -42,6 +42,9 @@ export default {
     onSlideEnd() {
       this.sliding = false
     }
+  },
+  mounted() {
+    console.log(this.images)
   }
 }
 </script>

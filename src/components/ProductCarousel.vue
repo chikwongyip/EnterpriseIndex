@@ -3,24 +3,7 @@
     props:{
       images:[]
     },
-    data() {
-      return {
-        slides: [
-          {
-            id: 1,
-            image: 'https://via.placeholder.com/800x400?text=Slide+1'
-          },
-          {
-            id: 2,
-            image: 'https://via.placeholder.com/800x400?text=Slide+2'
-          },
-          {
-            id: 3,
-            image: 'https://via.placeholder.com/800x400?text=Slide+3'
-          }
-        ]
-      }
-    }
+
   }
 </script>
 
