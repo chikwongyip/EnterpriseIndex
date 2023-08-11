@@ -1,9 +1,8 @@
 <template>
   <div class="container">
     <carousel-component
-        :images="imagesList"
+        :images="images"
     >
-
     </carousel-component>
   </div>
 </template>
@@ -21,22 +20,15 @@ export default {
   methods:{
     getData(){
       getActiveImage().then(res => {
-        this.images = res.data
+        this.images = res.data.map(item => {
+          item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
+          return item
+        })
       })
     }
   },
   mounted() {
     this.getData()
-  },
-  computed:{
-    imagesList(){
-      return(
-        this.images.map( item => {
-          item.product_pic = process.env.VUE_APP_IMAGES + item.product_pic
-          return item
-        })
-      )
-    }
   }
 }
 </script>
