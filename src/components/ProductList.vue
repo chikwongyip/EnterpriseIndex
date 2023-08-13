@@ -1,18 +1,20 @@
 <template>
-  <div class="container text-center">
-    <div class="row g-2">
-      <div class="col-6" v-for="item in productList" :key="item.product_id">
-        <img src="" alt="">
-        <div class="p-3">{{ item.product_name }}</div>
-      </div>
-    </div>
+  <div>
+    <b-container class="bv-example-row">
+      <product-card
+          :product-list="productList"
+      >
+
+      </product-card>
+    </b-container>
   </div>
 </template>
 
 <script>
-//TODO:搜索栏功能实现
+import ProductCard from "@/components/common/ProductCard.vue";
 export default {
   name: "ProductList",
+  components: {ProductCard},
   props:{
     productList:[],
   },

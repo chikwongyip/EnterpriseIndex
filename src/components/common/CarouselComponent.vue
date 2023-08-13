@@ -1,15 +1,15 @@
 <template>
   <div>
     <b-carousel
-        id="carousel-1"
+        id="carousel-fade"
         v-model="slide"
         :interval="4000"
-        controls
+        fade
         indicators
         background="#FBF8F9"
         img-width="450"
         img-height="450"
-        style="text-shadow: 1px 1px 2px #333;"
+        style="text-shadow: 0px 0px 2px #000"
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
     >
