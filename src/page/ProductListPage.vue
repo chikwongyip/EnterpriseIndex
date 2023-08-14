@@ -41,6 +41,9 @@ export default {
         }else{
           this.product = res.data.product
         }
+        this.product.forEach(item => {
+          item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
+        })
       })
       getBrand().then( res => {
         this.brand = res.data.map( item => {

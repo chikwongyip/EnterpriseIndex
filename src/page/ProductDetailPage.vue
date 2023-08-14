@@ -29,7 +29,10 @@ export default {
           this.logoUrl= process.env.VUE_APP_IMAGE + this.company.logo
         })
         getProduct().then( res => {
-          this.product = res.data.product
+          this.product = res.data.product.filter( item => {
+            item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
+            return item
+          })
           this.images = res.data.images.filter( item => {
             item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
             return item
