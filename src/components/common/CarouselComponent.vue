@@ -1,14 +1,12 @@
 <template>
   <div>
     <b-carousel
-        id="carousel-fade"
+        id="carousel-1"
         v-model="slide"
         :interval="4000"
         fade
         indicators
         background="#FBF8F9"
-        img-width="450"
-        img-height="450"
         style="text-shadow: 0px 0px 2px #000"
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
@@ -19,7 +17,10 @@
           :key="index"
           :caption="item.product_name"
           :img-src="item.product_pic"
-      ></b-carousel-slide>
+          img-width="450"
+          img-height="450"
+      >
+      </b-carousel-slide>
     </b-carousel>
   </div>
 </template>

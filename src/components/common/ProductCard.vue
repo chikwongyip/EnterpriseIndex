@@ -13,17 +13,27 @@
         <div class="col-12 col-md-6 col-lg-4 px-25" v-for="(item,index) in productList" :key="index">
           <div class="course-content">
             <figure class="course-thumbnail">
-              <a href="#"><img :src="item.product_pic" alt=""></a>
+              <router-link :to="{name:'productDetail',query:{product_id:item.product_id}}">
+                <img :src="item.product_pic" alt="">
+              </router-link>
             </figure><!-- .course-thumbnail -->
 
             <div class="course-content-wrap">
               <header class="entry-header">
-                <h2 class="entry-title"><a href="#">{{ item.product_name }}</a></h2>
+                <h2 class="entry-title">{{ item.product_name }}</h2>
 
                 <div class="entry-meta flex align-items-center">
-                  <div class="course-author"><a href="#">品牌:{{ item.brand_name }} </a></div>
+                  <div class="course-author">
+                    <router-link :to="{name:'productList',query:{brand_id:item.brand_id}}">
+                      品牌:{{ item.brand_name }}
+                    </router-link>
+                  </div>
 
-                  <div class="course-author">类别：{{ item.category_name }}</div>
+                  <div class="course-author">
+                    <router-link :to="{name:'productList',query:{category:item.category_id}}">
+                      类别：{{ item.category_name }}
+                    </router-link>
+                  </div>
                 </div><!-- .course-date -->
               </header><!-- .entry-header -->
 

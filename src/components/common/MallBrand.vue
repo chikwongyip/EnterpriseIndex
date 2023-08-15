@@ -12,7 +12,9 @@
             加载中<span class="dot">...</span>
           </div>
         </el-image>
-        <p>{{item.brand_name}}</p>
+        <router-link :to="{ name: 'productList',query:{brand_id:item.brand_id} }">
+          <p>{{item.brand_name}}</p>
+        </router-link>
       </div>
     </div>
   </div>

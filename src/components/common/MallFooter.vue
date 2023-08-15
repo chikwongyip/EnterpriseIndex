@@ -50,12 +50,16 @@
           <div class="row">
             <div class="col-md-6">
               <div class="footer-copyright">
-                <p>Copyright &copy; <a href="www.bootstrapmb.com">{{ company.name}}</a> All Rights Reserved</p>
+                <p>Copyright &copy;
+                  <router-link :to="{ name: 'index' }">
+                    {{ company.name}}
+                  </router-link>
+                  All Rights Reserved</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="footer-copyright">
-                <p><a href="www.bootstrapmb.com">{{ company.icp }}</a></p>
+                <p>{{ company.icp }}</p>
               </div>
             </div>
           </div>

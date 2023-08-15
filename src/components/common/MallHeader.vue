@@ -92,6 +92,7 @@ export default {
       type:"",
       brand_id:"",
       loginUrl:"",
+
       selection:[
         {
           label:"品牌",
@@ -123,7 +124,7 @@ export default {
     }
   },
   computed(){
-    this.loginUrl = process.env.VUE_APP_URL + "/user/login"
+    this.loginUrl = process.env.VUE_APP_ADMIN
   }
 }
 </script>

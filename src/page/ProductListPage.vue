@@ -32,11 +32,11 @@ export default {
           this.product = this.search(this.$route.query.name,this.$route.query.type,res.data.product)
         }else if(this.$route.query.brand_id){
           this.product = res.data.product.filter( item => {
-            return item.brand_id = this.$route.query.brand_id
+            return item.brand_id == this.$route.query.brand_id
           })
         }else if(this.$route.query.category_id){
           this.product = res.data.product.filter( item => {
-            return item.category_id = this.$route.query.category_id
+            return item.category_id == this.$route.query.category_id
           })
         }else{
           this.product = res.data.product
@@ -79,6 +79,19 @@ export default {
   mounted() {
     this.getData()
   },
+  watch:{
+    '$route.query.brand_id':{
+      handler(){
+        this.getData()
+      }
+    },
+    '$route.query.category_id':{
+      handler(){
+        this.getData()
+      }
+    },
+    immediate:true,
+  }
 }
 </script>
 
