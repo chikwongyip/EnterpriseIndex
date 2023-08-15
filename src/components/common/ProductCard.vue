@@ -45,9 +45,6 @@
             </div><!-- .course-content-wrap -->
           </div><!-- .course-content -->
         </div><!-- .col -->
-        <div class="col-12 px-25 flex justify-content-center">
-          <a class="btn" href="#">view all courses</a>
-        </div><!-- .col -->
       </div><!-- .row -->
     </div><!-- .container -->
   </section><!-- .courses-wrap -->

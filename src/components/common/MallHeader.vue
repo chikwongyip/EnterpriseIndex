@@ -2,16 +2,18 @@
   <div class="container">
     <div class="header">
       <div class="image">
-        <el-image 
-          :src="logoUrl"
-          :fit="fit"
-          style="width:180px; height:80px"
-          :load="imageOnLoad"
-          >
-            <div slot="placeholder" class="image-slot">
-              加载中<span class="dot">...</span>
-            </div>
-        </el-image>
+        <router-link :to="{ name: 'index' }">
+          <el-image
+            :src="logoUrl"
+            :fit="fit"
+            style="width:180px; height:80px"
+            :load="imageOnLoad"
+            >
+              <div slot="placeholder" class="image-slot">
+                加载中<span class="dot">...</span>
+              </div>
+          </el-image>
+        </router-link>
       </div>
       <div class="searchBar">
         <el-input placeholder="输入名称搜索产品" v-model="name" class="input-with-select">
