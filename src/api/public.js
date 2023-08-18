@@ -12,9 +12,9 @@ export const fetchGet = (url,params={}) => {
         })
     })
 }
-export const fetchPost = (url,parmas={}) => {
+export const fetchPost = (url,params={}) => {
     return new Promise((resolve,reject)=>{
-        axios.post(url,parmas)
+        axios.post(url,params)
         .then(response=>{
             resolve(response.data)
         })
