@@ -28,8 +28,9 @@
           <el-button slot="append" icon="el-icon-search" @click="submitSearch"></el-button>
         </el-input>
       </div>
-      <div class="button">
+      <div class="link-dark">
         <el-button type="primary" @click="clickToLogin" style="background-color:#1B438C ">后台登录</el-button>
+        <router-link :to="{name:'login'}">登录</router-link>
       </div>
     </div>
     <div class="menu">
@@ -120,7 +121,7 @@ export default {
       console.log(e)
     },
     clickToLogin(){
-      this.$router.push(this.loginUrl)
+      this.$router.push("/login")
     }
   },
   computed(){

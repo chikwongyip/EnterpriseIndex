@@ -1,6 +1,7 @@
-<script setup>
+<script>
   import { login } from "@/api/login";
   export default {
+    name:"LoginPage",
     data(){
       return{
         loginForm:{
@@ -19,7 +20,7 @@
       }
     },
     methods:{
-      handSubmit(){
+      handleSubmit(){
         this.$refs.form.validate( valid => {
           if(valid){
             let param = new FormData()
@@ -42,6 +43,9 @@
           }
         })
       }
+    },
+    mounted() {
+      console.log("hello world")
     }
   }
 </script>

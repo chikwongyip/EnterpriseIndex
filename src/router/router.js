@@ -1,7 +1,7 @@
 import IndexPage from "@/page/IndexPage";
 import ProductListPage from "@/page/ProductListPage.vue";
 import ProductDetailPage from "@/page/ProductDetailPage.vue";
-import loginPage from "@/page/LoginPage.vue";
+import LoginPage from "@/page/LoginPage.vue";
 let routes = [
     {
         path: "/",
@@ -25,8 +25,8 @@ let routes = [
     },
     {
         path: "/login",
-        component: loginPage,
-        name:"loginPage"
+        component: LoginPage,
+        name:"login"
     }
 ];
 export default routes;
