@@ -7,11 +7,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import App from './App.vue'
 import VueRouter from "vue-router"
 import routes from "../src/router/router"
+import VueCookies from "vue-cookies"
 
 Vue.use(ElementUI)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 Vue.use(VueRouter)
+Vue.use(VueCookies,{expires:'7d'})
 const router = new VueRouter({
   mode:"history",
   routes

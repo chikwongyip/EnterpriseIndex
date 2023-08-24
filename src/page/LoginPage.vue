@@ -27,14 +27,14 @@
             param.append("username",this.loginForm.username)
             param.append("password", this.loginForm.password)
             login(param).then( res => {
-              if(res.data.errno === 0){
-               localStorage.token = res.data.data.token
+              if(res.errno === 0){
+               localStorage.token = res.data.token
                 this.$cookies.set("username",this.loginForm.username,{ expires: '1d', path: '/' })
-                this.$router.push('/admin');
-              }else if( res.data.errno === -1){
+                window.open(process.env.VUE_APP_ADMIN)
+              }else if( res.errno === -1){
                 this.$message(
                     {
-                      message:res.data.message,
+                      message:res.data.msg,
                       type:"error"
                     }
                 )
