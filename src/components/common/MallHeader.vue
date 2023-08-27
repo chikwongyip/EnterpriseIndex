@@ -120,7 +120,7 @@ export default {
       console.log(e)
     },
     clickToLogin(){
-      this.$router.push("/login")
+      window.open(process.env.VUE_APP_ADMIN)
     }
   },
   computed(){
