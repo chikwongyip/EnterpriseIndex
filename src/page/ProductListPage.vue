@@ -43,6 +43,7 @@ export default {
         }
         this.product.forEach(item => {
           item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
+          // item.product_desc = item.product_desc.replaceAll(" ","&nbsp;").replaceAll("\r\n", "<br/>");
         })
       })
       getBrand().then( res => {

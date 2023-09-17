@@ -19,7 +19,9 @@
         <h4 v-else>
           {{product[0].product_standard}}
         </h4>
-        <p>{{ product[0].product_desc }}</p>
+        <p>
+          <pre id="desc">{{ product[0].product_desc }}</pre> 
+        </p>
       </div>
     </div>
     <div class="row">
@@ -39,12 +41,16 @@ export default {
     product:{},
     images:[],
   },
-  mounted() {
-    console.log(this.images)
-  }
+  // mounted() {
+  //   // console.log(this.images)
+  //   this.product[0].product_desc.replaceAll(" ","&nbsp;").replaceAll("\r\n", "<br/>")
+  //   console.log(this.product[0].product_desc)
+  // }
 }
 </script>
 
 <style scoped>
-
+  #desc{
+    white-space: pre-wrap;
+  }
 </style>
