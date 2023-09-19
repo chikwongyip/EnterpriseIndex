@@ -6,8 +6,8 @@ export const companyInfo = () => {
 export const applicationList = () => {
     return fetchGet(`${baseUrl}/admin/applicationList`)
 }
-export const getProduct = () => {
-    return fetchGet(`${baseUrl}/admin/productList`)
+export const getProduct = (params) => {
+    return fetchGet(`${baseUrl}/admin/productList`,params)
 }
 export const getService = () => {
     return fetchGet(`${baseUrl}/admin/serviceList`)

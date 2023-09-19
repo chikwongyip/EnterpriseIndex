@@ -5,7 +5,6 @@
         <router-link :to="{ name: 'index' }">
           <el-image
             :src="logoUrl"
-            :fit="fit"
             style="width:180px; height:80px"
             :load="imageOnLoad"
             >
@@ -42,7 +41,7 @@
         router
         :default-active="this.$route.path"
         >
-        <el-submenu>
+        <el-submenu index="1">
           <template slot="title">品牌</template>
           <el-menu-item v-for="(item) in brand"
                         :key="item.brand_id"

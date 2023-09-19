@@ -89,9 +89,6 @@ export default {
     return{
       message:""
     }
-  },
-  mounted(){
-    this.getData()
   }
 }
 </script>
