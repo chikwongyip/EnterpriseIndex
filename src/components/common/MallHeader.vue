@@ -72,6 +72,9 @@
             {{ item.category_name}}
           </el-menu-item>
         </el-submenu>
+        <el-menu-item :index="{ path:'/about'}">
+          关于我们
+        </el-menu-item>
       </el-menu>
     </div>
   </div>
