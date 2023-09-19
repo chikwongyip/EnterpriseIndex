@@ -6,9 +6,11 @@
                     <img class="img-fluid" src="../../src/static/imgbin.png" alt="">
                 </div>
                 <div class="col-md-6">
-                    <p>
-                        <pre id="desc">{{ company.description }}</pre> 
-                    </p>
+                    <div style="height:1000px">
+                        <p>
+                            <pre id="desc">{{ company.description }}</pre> 
+                        </p> 
+                    </div>
                 </div>
             </div>   
         </div>
