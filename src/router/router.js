@@ -3,37 +3,43 @@ import ProductListPage from "@/page/ProductListPage.vue";
 import ProductDetailPage from "@/page/ProductDetailPage.vue";
 import AboutPage from '@/page/AboutPage'
 import LoginPage from "@/page/LoginPage.vue";
+import DocsPage from '@/page/DocsPage'
 let routes = [
     {
         path: "/",
         component: IndexPage,
-        name:"index"
+        name: "index"
     },
     {
         path: "/productList",
         component: ProductListPage,
-        name:"productList"
+        name: "productList"
     },
     {
-        path:"/productDetail",
-        component:ProductDetailPage,
-        name:"productDetail"
+        path: "/productDetail",
+        component: ProductDetailPage,
+        name: "productDetail"
     },
     {
         path: "/productSearch",
         component: ProductListPage,
-        name:"productSearch"
+        name: "productSearch"
     },
     {
-        path:"/about",
-        component:AboutPage,
-        name:"about"
+        path: "/about",
+        component: AboutPage,
+        name: "about"
 
     },
     {
         path: "/login",
         component: LoginPage,
-        name:"login"
+        name: "login"
+    },
+    {
+        path: "/document",
+        component: DocsPage,
+        name: "document"
     }
 ];
 export default routes;

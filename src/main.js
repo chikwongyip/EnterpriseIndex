@@ -11,11 +11,12 @@ import VueCookies from "vue-cookies"
 
 Vue.use(ElementUI)
 Vue.use(BootstrapVue)
+
 Vue.config.productionTip = false
 Vue.use(VueRouter)
-Vue.use(VueCookies,{expires:'7d'})
+Vue.use(VueCookies, { expires: '7d' })
 const router = new VueRouter({
-  mode:"history",
+  mode: "history",
   routes
 })
 
